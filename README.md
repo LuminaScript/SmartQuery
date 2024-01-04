@@ -1,0 +1,2 @@
+# SmartQuery
+EduHack23
