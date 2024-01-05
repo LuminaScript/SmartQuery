@@ -212,10 +212,10 @@ def sql_explaination(model_name,db_name,question,sql_query,sql_result):
     # execute the model 
     return   text_response.invoke({"question": question,"query":sql_query,"response":sql_result})
 # sample to execute the model 
-question = "What are the top 3 best-selling artists from the database?"
+question = "What are names of artists"
 #example of using the model
 # example 1: auto agent
-    # print(sql_agent(question))
+# print(sql_agent(question))
 # example 2: end 2 end
 # print(text2sql_end2end("gpt3","Chinook",question))
 # example 3: step by step
@@ -226,5 +226,5 @@ print('result:',result)
 text = sqlresult2text("gpt3","Chinook",question,sql,result)
 print(text)
 
-explain=sql_explaination("gpt3","Chinook",question,sql,result)
+explain=sql_explaination("llama2_chat","Chinook",question,sql,result)
 print(explain)
