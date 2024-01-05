@@ -1,126 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SQL AI Chat</title>
-    <style>
-      body {
-        margin: 0;
-        font-family: Inter, sans-serif;
-        background: #eaf7f8;
-      }
-      .sidebar {
-        width: 180px;
-        padding-top: 140px;
-        padding-left: 30px;
-        padding-right: 46px;
-        position: fixed;
-        background: #060606;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 60px;
-        top: 0;
-        bottom: 0;
-      }
-      /* Existing CSS... */
 
-      .chat-content {
-        flex-grow: 1;
-        overflow-y: auto;
-        margin-bottom: 10px;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        padding: 10px;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SQL AI Chat</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Inter, sans-serif;
+      background: #eaf7f8;
+    }
 
-      .message {
-        max-width: 70%;
-        padding: 10px;
-        border-radius: 20px;
-        color: white;
-        font-size: 14px;
-      }
+    .sidebar {
+      width: 180px;
+      padding-top: 140px;
+      padding-left: 30px;
+      padding-right: 46px;
+      position: fixed;
+      background: #060606;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 60px;
+      top: 0;
+      bottom: 0;
+    }
 
-      .received {
-        align-self: flex-start;
-        background-color: #2a8bf2;
-      }
+    /* Existing CSS... */
 
-      .sent {
-        align-self: flex-end;
-        background-color: #4caf50;
-      }
+    .chat-content {
+      flex-grow: 1;
+      overflow-y: auto;
+      margin-bottom: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 10px;
+    }
 
-      .text {
-        word-wrap: break-word;
-      }
+    .message {
+      max-width: 70%;
+      padding: 10px;
+      border-radius: 20px;
+      color: white;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
 
-      .sidebar div {
-        color: #f1f1f1;
-        font-size: 14px;
-      }
-      .chat-box {
-        width: 748.52px;
-        height: 480px;
-        background: white;
-        box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.05);
-        border-radius: 6px;
-        padding: 20px;
-        position: absolute;
-        left: 340px;
-        top: 100px;
-        display: flex;
-        flex-direction: column;
-      }
+    .received {
+      align-self: flex-start;
+      background-color: #2a8bf2;
+      margin-right: auto;
+      /* Align to the left */
+      width: fit-content;
+    }
 
-      .chat-title {
-        background-color: #8ea0a44f;
-        color: white;
-        text-align: center;
-        padding: 10px 0;
-        font-size: 18px;
-        border-top-left-radius: 6px;
-        border-top-right-radius: 6px;
-        margin-bottom: 20px;
-      }
-      .message-input {
-        width: 748.52px;
-        height: 50px;
-        background: white;
-        box-shadow: 0px -5px 15px rgba(0, 0, 0, 0.05);
-        border-top: 1px solid #ccc;
-        display: flex;
-        align-items: center;
-        padding: 0 10px;
-        position: absolute;
-        bottom: 0;
-      }
-      .message-input input {
-        flex: 1;
-        border: none;
-        padding: 10px;
-        font-size: 16px;
-      }
-      .message-input button {
-        background-color: #2a8bf2;
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        margin-left: 10px;
-        border-radius: 4px;
-        font-size: 16px;
-        cursor: pointer;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="sidebar">
-      <!-- Sidebar content like Projects, Tasks, etc. -->
-      <div
-        style="
+    .sent {
+      align-self: flex-end;
+      background-color: #4caf50;
+      margin-left: auto;
+      /* Align to the right */
+      width: fit-content;
+    }
+
+    .text {
+      word-wrap: break-word;
+    }
+
+    .sidebar div {
+      color: #f1f1f1;
+      font-size: 14px;
+    }
+
+    .chat-box {
+      width: 748.52px;
+      height: 480px;
+      background: white;
+      box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.05);
+      border-radius: 6px;
+      padding: 20px;
+      position: absolute;
+      left: 340px;
+      top: 100px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .chat-title {
+      background-color: #8ea0a44f;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+      font-size: 18px;
+      border-top-left-radius: 6px;
+      border-top-right-radius: 6px;
+      margin-bottom: 20px;
+    }
+
+    .message-input {
+      width: 748.52px;
+      height: 50px;
+      background: white;
+      box-shadow: 0px -5px 15px rgba(0, 0, 0, 0.05);
+      border-top: 1px solid #ccc;
+      display: flex;
+      align-items: center;
+      padding: 0 10px;
+      position: absolute;
+      bottom: 0;
+    }
+
+    .message-input input {
+      flex: 1;
+      border: none;
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    .message-input button {
+      background-color: #2a8bf2;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin-left: 10px;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="sidebar">
+    <!-- Sidebar content like Projects, Tasks, etc. -->
+    <div style="
           width: 180px;
           padding-top: 140px;
           padding-left: 30px;
@@ -135,10 +149,8 @@
           gap: 60px;
           display: inline-flex;
           top: -115px;
-        "
-      >
-        <div
-          style="
+        ">
+      <div style="
             width: 30px;
 
             height: -200px;
@@ -149,11 +161,9 @@
             align-items: flex-start;
             gap: 10px;
             display: inline-flex;
-          "
-        >
-          <div style="width: 14px; height: -18px; position: relative">
-            <div
-              style="
+          ">
+        <div style="width: 14px; height: -18px; position: relative">
+          <div style="
                 width: 5.09px;
                 height: 8.91px;
                 left: 9.55px;
@@ -162,22 +172,18 @@
                 transform: rotate(180deg);
                 transform-origin: 0 0;
                 background: black;
-              "
-            ></div>
-          </div>
+              "></div>
         </div>
+      </div>
 
-        <div
-          style="
+      <div style="
             flex-direction: column;
             justify-content: flex-start;
             align-items: flex-start;
             gap: 10px;
             display: flex;
-          "
-        >
-          <div
-            style="
+          ">
+        <div style="
               width: 160px;
               padding-top: 13px;
               padding-bottom: 13px;
@@ -187,10 +193,8 @@
               align-items: center;
               gap: 16px;
               display: inline-flex;
-            "
-          >
-            <div
-              style="
+            ">
+          <div style="
                 width: 22px;
                 height: 22px;
                 padding-left: 1.37px;
@@ -200,75 +204,61 @@
                 justify-content: center;
                 align-items: center;
                 display: flex;
-              "
-            >
-              <div style="width: 19.25px; height: 19.71px; position: relative">
-                <div
-                  style="
+              ">
+            <div style="width: 19.25px; height: 19.71px; position: relative">
+              <div style="
                     width: 19.25px;
                     height: 16.04px;
                     left: 0px;
                     top: 3.67px;
                     position: absolute;
                     background: #f1f1f1;
-                  "
-                ></div>
-                <div
-                  style="
+                  "></div>
+              <div style="
                     width: 8.71px;
                     height: 5.04px;
                     left: 5.27px;
                     top: 0px;
                     position: absolute;
                     background: #f1f1f1;
-                  "
-                ></div>
-                <div
-                  style="
+                  "></div>
+              <div style="
                     width: 5.04px;
                     height: 5.04px;
                     left: 7.1px;
                     top: 9.17px;
                     position: absolute;
                     background: #f1f1f1;
-                  "
-                ></div>
-                <div
-                  style="
+                  "></div>
+              <div style="
                     width: 8.39px;
                     height: 4.14px;
                     left: 10.77px;
                     top: 8.25px;
                     position: absolute;
                     background: #f1f1f1;
-                  "
-                ></div>
-                <div
-                  style="
+                  "></div>
+              <div style="
                     width: 8.14px;
                     height: 3.91px;
                     left: 0.34px;
                     top: 8.5px;
                     position: absolute;
                     background: #f1f1f1;
-                  "
-                ></div>
-              </div>
+                  "></div>
             </div>
-            <div
-              style="
+          </div>
+          <div style="
                 color: #f1f1f1;
                 font-size: 14px;
                 font-family: Inter;
                 font-weight: 400;
                 word-wrap: break-word;
-              "
-            >
-              Projects
-            </div>
+              ">
+            Projects
           </div>
-          <div
-            style="
+        </div>
+        <div style="
               width: 160px;
               padding-top: 13px;
               padding-bottom: 13px;
@@ -278,10 +268,8 @@
               align-items: center;
               gap: 16px;
               display: inline-flex;
-            "
-          >
-            <div
-              style="
+            ">
+          <div style="
                 width: 22px;
                 height: 22px;
                 padding-left: 2.06px;
@@ -291,85 +279,69 @@
                 justify-content: center;
                 align-items: center;
                 display: flex;
-              "
-            >
-              <div style="width: 17.88px; height: 16.96px; position: relative">
-                <div
-                  style="
+              ">
+            <div style="width: 17.88px; height: 16.96px; position: relative">
+              <div style="
                     width: 10.54px;
                     height: 1.38px;
                     left: 7.33px;
                     top: 14.67px;
                     position: absolute;
                     background: #f1f1f1;
-                  "
-                ></div>
-                <div
-                  style="
+                  "></div>
+              <div style="
                     width: 10.54px;
                     height: 1.38px;
                     left: 7.33px;
                     top: 8.25px;
                     position: absolute;
                     background: #f1f1f1;
-                  "
-                ></div>
-                <div
-                  style="
+                  "></div>
+              <div style="
                     width: 10.54px;
                     height: 1.38px;
                     left: 7.33px;
                     top: 1.83px;
                     position: absolute;
                     background: #f1f1f1;
-                  "
-                ></div>
-                <div
-                  style="
+                  "></div>
+              <div style="
                     width: 5.04px;
                     height: 4.12px;
                     left: 0px;
                     top: 0px;
                     position: absolute;
                     background: #f1f1f1;
-                  "
-                ></div>
-                <div
-                  style="
+                  "></div>
+              <div style="
                     width: 5.04px;
                     height: 4.12px;
                     left: 0px;
                     top: 6.42px;
                     position: absolute;
                     background: #f1f1f1;
-                  "
-                ></div>
-                <div
-                  style="
+                  "></div>
+              <div style="
                     width: 5.04px;
                     height: 4.12px;
                     left: 0px;
                     top: 12.83px;
                     position: absolute;
                     background: #f1f1f1;
-                  "
-                ></div>
-              </div>
+                  "></div>
             </div>
-            <div
-              style="
+          </div>
+          <div style="
                 color: #f1f1f1;
                 font-size: 14px;
                 font-family: Inter;
                 font-weight: 400;
                 word-wrap: break-word;
-              "
-            >
-              Tasks
-            </div>
+              ">
+            Tasks
           </div>
-          <div
-            style="
+        </div>
+        <div style="
               width: 160px;
               padding-top: 13px;
               padding-bottom: 13px;
@@ -379,155 +351,125 @@
               align-items: center;
               gap: 16px;
               display: inline-flex;
-            "
-          >
-            <div
-              style="
+            ">
+          <div style="
                 width: 22px;
                 height: 22px;
                 padding: 1.15px;
                 justify-content: center;
                 align-items: center;
                 display: flex;
-              "
-            >
-              <div style="width: 19.71px; height: 19.71px; position: relative">
-                <div
-                  style="
+              ">
+            <div style="width: 19.71px; height: 19.71px; position: relative">
+              <div style="
                     width: 16.04px;
                     height: 16.04px;
                     left: 1.83px;
                     top: 1.83px;
                     position: absolute;
                     background: #f1f1f1;
-                  "
-                ></div>
-                <div
-                  style="
+                  "></div>
+              <div style="
                     width: 9.95px;
                     height: 9.95px;
                     left: 4.58px;
                     top: 4.58px;
                     position: absolute;
                     background: #f1f1f1;
-                  "
-                ></div>
-                <div
-                  style="
+                  "></div>
+              <div style="
                     width: 1.38px;
                     height: 3.21px;
                     left: 5.51px;
                     top: 0px;
                     position: absolute;
                     background: #f1f1f1;
-                  "
-                ></div>
-                <div
-                  style="
+                  "></div>
+              <div style="
                     width: 1.38px;
                     height: 3.21px;
                     left: 9.17px;
                     top: 0px;
                     position: absolute;
                     background: #f1f1f1;
-                  "
-                ></div>
-                <div
-                  style="
+                  "></div>
+              <div style="
                     width: 1.38px;
                     height: 3.21px;
                     left: 12.83px;
                     top: 0px;
                     position: absolute;
                     background: #f1f1f1;
-                  "
-                ></div>
-                <div
-                  style="
+                  "></div>
+              <div style="
                     width: 3.21px;
                     height: 1.38px;
                     left: 16.5px;
                     top: 5.5px;
                     position: absolute;
                     background: #f1f1f1;
-                  "
-                ></div>
-                <div
-                  style="
+                  "></div>
+              <div style="
                     width: 1.38px;
                     height: 3.21px;
                     left: 5.51px;
                     top: 16.5px;
                     position: absolute;
                     background: #f1f1f1;
-                  "
-                ></div>
-                <div
-                  style="
+                  "></div>
+              <div style="
                     width: 3.21px;
                     height: 1.38px;
                     left: 0px;
                     top: 5.5px;
                     position: absolute;
                     background: #f1f1f1;
-                  "
-                ></div>
-                <div
-                  style="
+                  "></div>
+              <div style="
                     width: 3.21px;
                     height: 1.38px;
                     left: 0px;
                     top: 9.17px;
                     position: absolute;
                     background: #f1f1f1;
-                  "
-                ></div>
-                <div
-                  style="
+                  "></div>
+              <div style="
                     width: 3.21px;
                     height: 1.38px;
                     left: 0px;
                     top: 12.83px;
                     position: absolute;
                     background: #f1f1f1;
-                  "
-                ></div>
-                <div
-                  style="
+                  "></div>
+              <div style="
                     width: 4.29px;
                     height: 4.29px;
                     left: 12.03px;
                     top: 12.29px;
                     position: absolute;
                     background: #f1f1f1;
-                  "
-                ></div>
-                <div
-                  style="
+                  "></div>
+              <div style="
                     width: 11.07px;
                     height: 10.54px;
                     left: 8.63px;
                     top: 9.16px;
                     position: absolute;
                     background: #f1f1f1;
-                  "
-                ></div>
-              </div>
+                  "></div>
             </div>
-            <div
-              style="
+          </div>
+          <div style="
                 color: #f1f1f1;
                 font-size: 14px;
                 font-family: Inter;
                 font-weight: 400;
                 word-wrap: break-word;
-              "
-            >
-              Dashboard
-            </div>
+              ">
+            Dashboard
           </div>
-          <div
-            style="
+        </div>
+        <div style="
               width: 160px;
               padding-top: 13px;
               padding-bottom: 13px;
@@ -537,10 +479,8 @@
               align-items: center;
               gap: 16px;
               display: inline-flex;
-            "
-          >
-            <div
-              style="
+            ">
+          <div style="
                 width: 22px;
                 height: 22px;
                 padding-top: 1.15px;
@@ -550,115 +490,93 @@
                 justify-content: center;
                 align-items: center;
                 display: flex;
-              "
-            >
-              <div style="width: 19.68px; height: 19.71px; position: relative">
-                <div
-                  style="
+              ">
+            <div style="width: 19.68px; height: 19.71px; position: relative">
+              <div style="
                     width: 7.46px;
                     height: 12.86px;
                     left: 12.22px;
                     top: -0px;
                     position: absolute;
-                  "
-                >
-                  <div
-                    style="
+                  ">
+                <div style="
                       width: 6.1px;
                       height: 6.11px;
                       left: 0px;
                       top: 0px;
                       position: absolute;
                       background: #f1f1f1;
-                    "
-                  ></div>
-                  <div
-                    style="
+                    "></div>
+                <div style="
                       width: 5.98px;
                       height: 5.98px;
                       left: 1.48px;
                       top: 6.88px;
                       position: absolute;
                       background: #f1f1f1;
-                    "
-                  ></div>
-                </div>
-                <div
-                  style="
+                    "></div>
+              </div>
+              <div style="
                     width: 7.46px;
                     height: 12.86px;
                     left: 0px;
                     top: 0px;
                     position: absolute;
-                  "
-                >
-                  <div
-                    style="
+                  ">
+                <div style="
                       width: 6.11px;
                       height: 6.11px;
                       left: 1.35px;
                       top: -0px;
                       position: absolute;
                       background: #f1f1f1;
-                    "
-                  ></div>
-                  <div
-                    style="
+                    "></div>
+                <div style="
                       width: 5.98px;
                       height: 5.98px;
                       left: 0px;
                       top: 6.88px;
                       position: absolute;
                       background: #f1f1f1;
-                    "
-                  ></div>
-                </div>
-                <div
-                  style="
+                    "></div>
+              </div>
+              <div style="
                     width: 8.65px;
                     height: 12.86px;
                     left: 5.53px;
                     top: 6.85px;
                     position: absolute;
-                  "
-                >
-                  <div
-                    style="
+                  ">
+                <div style="
                       width: 6.11px;
                       height: 6.11px;
                       left: 1.19px;
                       top: -0px;
                       position: absolute;
                       background: #f1f1f1;
-                    "
-                  ></div>
-                  <div
-                    style="
+                    "></div>
+                <div style="
                       width: 8.65px;
                       height: 5.97px;
                       left: 0px;
                       top: 6.89px;
                       position: absolute;
                       background: #f1f1f1;
-                    "
-                  ></div>
-                </div>
+                    "></div>
               </div>
             </div>
-            <div
-              style="
+          </div>
+          <div style="
                 color: #f1f1f1;
                 font-size: 14px;
                 font-family: Inter;
                 font-weight: 400;
                 word-wrap: break-word;
-              "
-            >
-              Users
-            </div>
+              ">
+            Users
           </div>
-          <div
-            style="
+        </div>
+        <div style="
               width: 160px;
               padding-top: 13px;
               padding-bottom: 13px;
@@ -668,10 +586,8 @@
               align-items: center;
               gap: 16px;
               display: inline-flex;
-            "
-          >
-            <div
-              style="
+            ">
+          <div style="
                 width: 22px;
                 height: 22px;
                 padding-top: 1.66px;
@@ -681,63 +597,149 @@
                 justify-content: center;
                 align-items: center;
                 display: flex;
-              "
-            >
-              <div style="width: 19.72px; height: 18.68px; position: relative">
-                <div
-                  style="
+              ">
+            <div style="width: 19.72px; height: 18.68px; position: relative">
+              <div style="
                     width: 6.88px;
                     height: 6.88px;
                     left: 6.42px;
                     top: 5.9px;
                     position: absolute;
                     background: #f1f1f1;
-                  "
-                ></div>
-                <div
-                  style="
+                  "></div>
+              <div style="
                     width: 19.72px;
                     height: 18.68px;
                     left: 0px;
                     top: 0px;
                     position: absolute;
                     background: #f1f1f1;
-                  "
-                ></div>
-              </div>
+                  "></div>
             </div>
-            <div
-              style="
+          </div>
+          <div style="
                 color: #f1f1f1;
                 font-size: 14px;
                 font-family: Inter;
                 font-weight: 400;
                 word-wrap: break-word;
-              "
-            >
-              Menu settings
-            </div>
+              ">
+            Menu settings
           </div>
         </div>
       </div>
     </div>
-    <div class="chat-box">
-      <!-- Chat content goes here -->
-      <div class="chat-title">SQL AI Teaching Assistant</div>
-      <div class="chat-content">
-        <!-- Sample messages -->
-        <div class="message received">
-          <span class="text">Hi there! How can I help you today?</span>
-        </div>
-        <div class="message sent">
-          <span class="text">Can you assist me with SQL queries?</span>
-        </div>
-        <!-- More messages... -->
+  </div>
+  <div class="chat-box">
+    <!-- Chat content goes here -->
+    <div class="chat-title">SQL AI Teaching Assistant</div>
+
+    <div class="chat-content">
+      <!-- AI model selection -->
+      <div>
+        <label for="model-selection">Choose AI Model:</label>
+        <select id="model-selection" onchange="updateModel()">
+          <option value="model1">Model1</option>
+          <option value="model2">Model2</option>
+          <!-- Add more options as needed -->
+        </select>
       </div>
-      <div class="message-input">
-        <input type="text" placeholder="Type a message here..." />
-        <button>Send</button>
+
+      <!-- Sample messages -->
+      <div class="message received">
+        <span class="text">Hi there! How can I help you today?</span>
       </div>
+      <div class="message sent">
+        <span class="text">Can you assist me with SQL queries?</span>
+      </div>
+      <div class="message received">
+        <span class="text">Sure!</span>
+      </div>
+      <!-- More messages... -->
+      <div id="messages"></div>
     </div>
-  </body>
+    <div class="message-input">
+      <input type="text" id="user-message" placeholder="Type a message...">
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+
+  <script>
+    // Array to store chat history
+    const chatHistory = [];
+
+    function sendMessage() {
+      const userMessage = document.getElementById('user-message').value;
+
+      // Send user message to Flask backend
+      fetch('/api/generate_response', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ message: userMessage }),
+      })
+        .then(response => response.json())
+        .then(data => {
+          // Add the user message and bot response to chat history
+          chatHistory.push({ user: userMessage, bot: data.message });
+
+          // Display the entire chat history in the chat box
+          displayChatHistory();
+
+          // Clear the input field
+          document.getElementById('user-message').value = '';
+        })
+        .catch(error => console.error('Error:', error));
+    }
+
+    function displayChatHistory() {
+      // Display the entire chat history in the messages div
+      const messagesDiv = document.getElementById('messages');
+      messagesDiv.innerHTML = '';
+
+      chatHistory.forEach(chat => {
+        // Add user message
+        if (chat.user !== undefined) {
+          messagesDiv.innerHTML += `<div class="message sent"><span class="text">${chat.user}</span></div>`;
+        }
+        // Add bot message
+        if (chat.bot !== undefined) {
+          messagesDiv.innerHTML += `<div class="message received"><span class="text">${chat.bot}</span></div>`;
+        }
+      });
+
+      // Scroll to the bottom to show the latest messages
+      messagesDiv.scrollTop = messagesDiv.scrollHeight;
+    }
+
+    // Initial display of chat history (empty)
+    displayChatHistory();
+
+    // Script for model selection.
+    const modelSelection = document.getElementById('model-selection');
+
+    function updateModel() {
+      const selectedModel = modelSelection.value;
+
+      // Send selected model to Flask backend
+      fetch('/api/set_model', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ model: selectedModel }),
+      })
+        .then(response => response.json())
+        .then(data => {
+          // Display the response as a chat message
+          chatHistory.push({ bot: data.message });
+          displayChatHistory();
+        })
+        .catch(error => console.error('Error setting model:', error));
+    }
+  </script>
+
+</body>
+
 </html>
