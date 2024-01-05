@@ -12,9 +12,12 @@ def index():
 
 
 @app.route('/chat')
-def diary():
+def chat():
     return render_template("chat.html")
 
+@app.route('/signup')
+def signup():
+    return render_template("signup.html")
 
 @app.route('/api/generate_response', methods=['POST'])
 def generate_response():
@@ -32,6 +35,10 @@ def set_model():
     selected_model = request.json['model']
     return jsonify({'message': f'Selected model set to {selected_model}'})
 
+
+@app.route('/login')
+def login():
+    return render_template("login.html")
 
 if __name__ == '__main__':
     app.run(debug=True)
