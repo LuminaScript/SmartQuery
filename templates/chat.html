@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SQL AI Chat</title>
+    <link rel="stylesheet" href="../static/css/index.css" />
+    <link rel="stylesheet" href="../static/css/chat.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SQL AI Chat</title>
-  <link rel="stylesheet" href="../static/css/index.css" />
-  <link rel="stylesheet" href="../static/css/chat.css" />
-</head>
-
-<body>
-  <!-- sidebar content -->
-  <div class="sidebar">
-    <div class="sidebar-box">
-      <div class="menu-project">
-        <div style="
+  <body>
+    <!-- sidebar content -->
+    <div class="sidebar">
+      <div class="sidebar-box">
+        <div class="menu-project">
+          <div
+            style="
               width: 22px;
               height: 22px;
               padding-left: 1.37px;
@@ -24,55 +24,67 @@
               justify-content: center;
               align-items: center;
               display: flex;
-            ">
-          <div style="width: 19.25px; height: 19.71px; position: relative">
-            <div style="
+            "
+          >
+            <div style="width: 19.25px; height: 19.71px; position: relative">
+              <div
+                style="
                   width: 19.25px;
                   height: 16.04px;
                   left: 0px;
                   top: 3.67px;
                   position: absolute;
                   background: #f1f1f1;
-                "></div>
-            <div style="
+                "
+              ></div>
+              <div
+                style="
                   width: 8.71px;
                   height: 5.04px;
                   left: 5.27px;
                   top: 0px;
                   position: absolute;
                   background: #f1f1f1;
-                "></div>
-            <div style="
+                "
+              ></div>
+              <div
+                style="
                   width: 5.04px;
                   height: 5.04px;
                   left: 7.1px;
                   top: 9.17px;
                   position: absolute;
                   background: #f1f1f1;
-                "></div>
-            <div style="
+                "
+              ></div>
+              <div
+                style="
                   width: 8.39px;
                   height: 4.14px;
                   left: 10.77px;
                   top: 8.25px;
                   position: absolute;
                   background: #f1f1f1;
-                "></div>
-            <div style="
+                "
+              ></div>
+              <div
+                style="
                   width: 8.14px;
                   height: 3.91px;
                   left: 0.34px;
                   top: 8.5px;
                   position: absolute;
                   background: #f1f1f1;
-                "></div>
+                "
+              ></div>
+            </div>
           </div>
+          <div class="menu-text">Projects</div>
         </div>
-        <div class="menu-text">Projects</div>
-      </div>
 
-      <div class="menu-tasks">
-        <div style="
+        <div class="menu-tasks">
+          <div
+            style="
               width: 22px;
               height: 22px;
               padding-left: 2.06px;
@@ -82,176 +94,218 @@
               justify-content: center;
               align-items: center;
               display: flex;
-            ">
-          <div style="width: 17.88px; height: 16.96px; position: relative">
-            <div style="
+            "
+          >
+            <div style="width: 17.88px; height: 16.96px; position: relative">
+              <div
+                style="
                   width: 10.54px;
                   height: 1.38px;
                   left: 7.33px;
                   top: 14.67px;
                   position: absolute;
                   background: #f1f1f1;
-                "></div>
-            <div style="
+                "
+              ></div>
+              <div
+                style="
                   width: 10.54px;
                   height: 1.38px;
                   left: 7.33px;
                   top: 8.25px;
                   position: absolute;
                   background: #f1f1f1;
-                "></div>
-            <div style="
+                "
+              ></div>
+              <div
+                style="
                   width: 10.54px;
                   height: 1.38px;
                   left: 7.33px;
                   top: 1.83px;
                   position: absolute;
                   background: #f1f1f1;
-                "></div>
-            <div style="
+                "
+              ></div>
+              <div
+                style="
                   width: 5.04px;
                   height: 4.12px;
                   left: 0px;
                   top: 0px;
                   position: absolute;
                   background: #f1f1f1;
-                "></div>
-            <div style="
+                "
+              ></div>
+              <div
+                style="
                   width: 5.04px;
                   height: 4.12px;
                   left: 0px;
                   top: 6.42px;
                   position: absolute;
                   background: #f1f1f1;
-                "></div>
-            <div style="
+                "
+              ></div>
+              <div
+                style="
                   width: 5.04px;
                   height: 4.12px;
                   left: 0px;
                   top: 12.83px;
                   position: absolute;
                   background: #f1f1f1;
-                "></div>
+                "
+              ></div>
+            </div>
           </div>
+          <div class="menu-text">Tasks</div>
         </div>
-        <div class="menu-text">Tasks</div>
-      </div>
 
-      <div class="menu-dashboard">
-        <div style="
+        <div class="menu-dashboard">
+          <div
+            style="
               width: 22px;
               height: 22px;
               padding: 1.15px;
               justify-content: center;
               align-items: center;
               display: flex;
-            ">
-          <div style="width: 19.71px; height: 19.71px; position: relative">
-            <div style="
+            "
+          >
+            <div style="width: 19.71px; height: 19.71px; position: relative">
+              <div
+                style="
                   width: 16.04px;
                   height: 16.04px;
                   left: 1.83px;
                   top: 1.83px;
                   position: absolute;
                   background: #f1f1f1;
-                "></div>
-            <div style="
+                "
+              ></div>
+              <div
+                style="
                   width: 9.95px;
                   height: 9.95px;
                   left: 4.58px;
                   top: 4.58px;
                   position: absolute;
                   background: #f1f1f1;
-                "></div>
-            <div style="
+                "
+              ></div>
+              <div
+                style="
                   width: 1.38px;
                   height: 3.21px;
                   left: 5.51px;
                   top: 0px;
                   position: absolute;
                   background: #f1f1f1;
-                "></div>
-            <div style="
+                "
+              ></div>
+              <div
+                style="
                   width: 1.38px;
                   height: 3.21px;
                   left: 9.17px;
                   top: 0px;
                   position: absolute;
                   background: #f1f1f1;
-                "></div>
-            <div style="
+                "
+              ></div>
+              <div
+                style="
                   width: 1.38px;
                   height: 3.21px;
                   left: 12.83px;
                   top: 0px;
                   position: absolute;
                   background: #f1f1f1;
-                "></div>
-            <div style="
+                "
+              ></div>
+              <div
+                style="
                   width: 3.21px;
                   height: 1.38px;
                   left: 16.5px;
                   top: 5.5px;
                   position: absolute;
                   background: #f1f1f1;
-                "></div>
-            <div style="
+                "
+              ></div>
+              <div
+                style="
                   width: 1.38px;
                   height: 3.21px;
                   left: 5.51px;
                   top: 16.5px;
                   position: absolute;
                   background: #f1f1f1;
-                "></div>
-            <div style="
+                "
+              ></div>
+              <div
+                style="
                   width: 3.21px;
                   height: 1.38px;
                   left: 0px;
                   top: 5.5px;
                   position: absolute;
                   background: #f1f1f1;
-                "></div>
-            <div style="
+                "
+              ></div>
+              <div
+                style="
                   width: 3.21px;
                   height: 1.38px;
                   left: 0px;
                   top: 9.17px;
                   position: absolute;
                   background: #f1f1f1;
-                "></div>
-            <div style="
+                "
+              ></div>
+              <div
+                style="
                   width: 3.21px;
                   height: 1.38px;
                   left: 0px;
                   top: 12.83px;
                   position: absolute;
                   background: #f1f1f1;
-                "></div>
-            <div style="
+                "
+              ></div>
+              <div
+                style="
                   width: 4.29px;
                   height: 4.29px;
                   left: 12.03px;
                   top: 12.29px;
                   position: absolute;
                   background: #f1f1f1;
-                "></div>
-            <div style="
+                "
+              ></div>
+              <div
+                style="
                   width: 11.07px;
                   height: 10.54px;
                   left: 8.63px;
                   top: 9.16px;
                   position: absolute;
                   background: #f1f1f1;
-                "></div>
+                "
+              ></div>
+            </div>
+          </div>
+          <div class="menu-text">
+            <a href="/home" style="text-decoration: none; color: inherit"
+              >Dashboard</a
+            >
           </div>
         </div>
-        <div class="menu-text">
-          <a href="/home" style="text-decoration: none; color: inherit">Dashboard</a>
-        </div>
-      </div>
 
-      <div class="menu-users">
-        <div style="
+        <div class="menu-users">
+          <div
+            style="
               width: 22px;
               height: 22px;
               padding-top: 1.15px;
@@ -261,87 +315,107 @@
               justify-content: center;
               align-items: center;
               display: flex;
-            ">
-          <div style="width: 19.68px; height: 19.71px; position: relative">
-            <div style="
+            "
+          >
+            <div style="width: 19.68px; height: 19.71px; position: relative">
+              <div
+                style="
                   width: 7.46px;
                   height: 12.86px;
                   left: 12.22px;
                   top: -0px;
                   position: absolute;
-                ">
-              <div style="
+                "
+              >
+                <div
+                  style="
                     width: 6.1px;
                     height: 6.11px;
                     left: 0px;
                     top: 0px;
                     position: absolute;
                     background: #f1f1f1;
-                  "></div>
-              <div style="
+                  "
+                ></div>
+                <div
+                  style="
                     width: 5.98px;
                     height: 5.98px;
                     left: 1.48px;
                     top: 6.88px;
                     position: absolute;
                     background: #f1f1f1;
-                  "></div>
-            </div>
-            <div style="
+                  "
+                ></div>
+              </div>
+              <div
+                style="
                   width: 7.46px;
                   height: 12.86px;
                   left: 0px;
                   top: 0px;
                   position: absolute;
-                ">
-              <div style="
+                "
+              >
+                <div
+                  style="
                     width: 6.11px;
                     height: 6.11px;
                     left: 1.35px;
                     top: -0px;
                     position: absolute;
                     background: #f1f1f1;
-                  "></div>
-              <div style="
+                  "
+                ></div>
+                <div
+                  style="
                     width: 5.98px;
                     height: 5.98px;
                     left: 0px;
                     top: 6.88px;
                     position: absolute;
                     background: #f1f1f1;
-                  "></div>
-            </div>
-            <div style="
+                  "
+                ></div>
+              </div>
+              <div
+                style="
                   width: 8.65px;
                   height: 12.86px;
                   left: 5.53px;
                   top: 6.85px;
                   position: absolute;
-                ">
-              <div style="
+                "
+              >
+                <div
+                  style="
                     width: 6.11px;
                     height: 6.11px;
                     left: 1.19px;
                     top: -0px;
                     position: absolute;
                     background: #f1f1f1;
-                  "></div>
-              <div style="
+                  "
+                ></div>
+                <div
+                  style="
                     width: 8.65px;
                     height: 5.97px;
                     left: 0px;
                     top: 6.89px;
                     position: absolute;
                     background: #f1f1f1;
-                  "></div>
+                  "
+                ></div>
+              </div>
             </div>
           </div>
+          <div class="menu-text">Users</div>
         </div>
-        <div class="menu-text">Users</div>
-      </div>
 
-      <div class="menu-settings">
-        <div style="
+        <div class="menu-settings">
+          <div
+            style="
               width: 22px;
               height: 22px;
               padding-top: 1.66px;
@@ -351,48 +425,52 @@
               justify-content: center;
               align-items: center;
               display: flex;
-            ">
-          <div style="width: 19.72px; height: 18.68px; position: relative">
-            <div style="
+            "
+          >
+            <div style="width: 19.72px; height: 18.68px; position: relative">
+              <div
+                style="
                   width: 6.88px;
                   height: 6.88px;
                   left: 6.42px;
                   top: 5.9px;
                   position: absolute;
                   background: #f1f1f1;
-                "></div>
-            <div style="
+                "
+              ></div>
+              <div
+                style="
                   width: 19.72px;
                   height: 18.68px;
                   left: 0px;
                   top: 0px;
                   position: absolute;
                   background: #f1f1f1;
-                "></div>
+                "
+              ></div>
+            </div>
           </div>
+          <div class="menu-text">Menu settings</div>
         </div>
-        <div class="menu-text">Menu settings</div>
       </div>
     </div>
-  </div>
 
-  <!-- Sidebar title <Edusmart> -->
-  <div class="menu-title">
-    <a href="/home" style="text-decoration: none; color: inherit">EduSmart</a>
-  </div>
+    <!-- Sidebar title <Edusmart> -->
+    <div class="menu-title">
+      <a href="/home" style="text-decoration: none; color: inherit">EduSmart</a>
+    </div>
 
-  <div class="chat-box">
-    <!-- Chat content goes here -->
-    <div class="chat-title">SQL AI Teaching Assistant</div>
+    <div class="chat-box">
+      <!-- Chat content goes here -->
+      <div class="chat-title">SQL AI Teaching Assistant</div>
 
-    <div class="chat-content">
-      <!-- AI model selection -->
+      <!-- <div class="chat-content">
+
       <div>
         <label for="model-selection">Choose AI Model:</label>
         <select id="model-selection" onchange="updateModel()">
           <option value="gpt4">gpt4</option>
           <option value="gpt3">gpt3</option>
-          <!-- Add more options as needed -->
         </select>
       </div>
 
@@ -401,42 +479,61 @@
         <select id="db-selection" onchange="updateDB()">
           <option value="aitools/nba_roster">nba_roster</option>
           <option value="aitools/Chinook">Chinook</option>
-          <!-- Add more options as needed -->
         </select>
-      </div>
+      </div> -->
+      <div class="chat-content">
+        <!-- AI model selection -->
+        <div>
+          <label for="model-selection">Choose AI Model:</label>
+          <select id="model-selection" onchange="updateModel()">
+            <option value="gpt4">gpt4</option>
+            <option value="gpt3">gpt3</option>
+            <!-- Add more options as needed -->
+          </select>
+        </div>
 
-      <!-- TODO: update agent values -->
-      <div>
-        <label for="agent-selection">Choose education mode:</label>
-        <select id="agent-selection">
-          <option value="agent1">Step by step</option>
-          <option value="agent2">One step</option>
-          <!-- Add more options as needed -->
-        </select>
-      </div>
+        <div>
+          <label for="db-selection">Choose sample DB:</label>
+          <select id="db-selection" onchange="updateDB()">
+            <option value="aitools/nba_roster">nba_roster</option>
+            <option value="aitools/Chinook">Chinook</option>
+            <!-- Add more options as needed -->
+          </select>
+        </div>
 
-      <!-- Sample messages -->
-      <div class="message received">
-        <span class="text">Hi there! How can I help you today?</span>
+        <!-- TODO: update agent values -->
+        <div>
+          <label for="agent-selection">Choose education mode:</label>
+          <select id="agent-selection">
+            <option value="agent1">Step by step</option>
+            <option value="agent2">One step</option>
+            <!-- Add more options as needed -->
+          </select>
+        </div>
+
+        <!-- Sample messages -->
+        <div class="message received">
+          <span class="text">Hi there! How can I help you today?</span>
+        </div>
+        <div class="message sent">
+          <span class="text">Can you assist me with SQL queries?</span>
+        </div>
+        <div class="message received">
+          <span class="text">Sure!</span>
+        </div>
+        <!-- More messages... -->
+        <div id="messages"></div>
       </div>
-      <div class="message sent">
-        <span class="text">Can you assist me with SQL queries?</span>
+      <div class="message-input">
+        <input type="text" id="user-message" placeholder="Type a message..." />
+        <button onclick="sendMessage()">Send</button>
       </div>
-      <div class="message received">
-        <span class="text">Sure!</span>
-      </div>
-      <!-- More messages... -->
-      <div id="messages"></div>
     </div>
-    <div class="message-input">
-      <input type="text" id="user-message" placeholder="Type a message..." />
-      <button onclick="sendMessage()">Send</button>
-    </div>
-  </div>
 
-  <!-- The logo -->
-  <div class="logo">
-    <div style="
+    <!-- The logo -->
+    <div class="logo">
+      <div
+        style="
           width: 7.82px;
           height: 9.68px;
           left: 22.2px;
@@ -444,8 +541,10 @@
           position: absolute;
           background: #e65f2b;
           box-shadow: 0px 0px 2px rgba(255, 255, 255, 0.25);
-        "></div>
-    <div style="
+        "
+      ></div>
+      <div
+        style="
           width: 9.4px;
           height: 9.69px;
           left: 16.9px;
@@ -453,8 +552,10 @@
           position: absolute;
           background: #e65f2b;
           box-shadow: 0px 0px 2px rgba(255, 255, 255, 0.25);
-        "></div>
-    <div style="
+        "
+      ></div>
+      <div
+        style="
           width: 9.77px;
           height: 9.33px;
           left: 11.25px;
@@ -462,8 +563,10 @@
           position: absolute;
           background: #e65f2b;
           box-shadow: 0px 0px 2px rgba(255, 255, 255, 0.25);
-        "></div>
-    <div style="
+        "
+      ></div>
+      <div
+        style="
           width: 9.76px;
           height: 7.76px;
           left: 5.83px;
@@ -471,8 +574,10 @@
           position: absolute;
           background: #e65f2b;
           box-shadow: 0px 0px 2px rgba(255, 255, 255, 0.25);
-        "></div>
-    <div style="
+        "
+      ></div>
+      <div
+        style="
           width: 9.77px;
           height: 9.33px;
           left: 1.71px;
@@ -480,8 +585,10 @@
           position: absolute;
           background: #e65f2b;
           box-shadow: 0px 0px 2px rgba(255, 255, 255, 0.25);
-        "></div>
-    <div style="
+        "
+      ></div>
+      <div
+        style="
           width: 9.4px;
           height: 9.69px;
           left: 0px;
@@ -489,8 +596,10 @@
           position: absolute;
           background: #e65f2b;
           box-shadow: 0px 0px 2px rgba(255, 255, 255, 0.25);
-        "></div>
-    <div style="
+        "
+      ></div>
+      <div
+        style="
           width: 7.82px;
           height: 9.68px;
           left: 1.16px;
@@ -498,8 +607,10 @@
           position: absolute;
           background: #e65f2b;
           box-shadow: 0px 0px 2px rgba(255, 255, 255, 0.25);
-        "></div>
-    <div style="
+        "
+      ></div>
+      <div
+        style="
           width: 9.4px;
           height: 9.69px;
           left: 4.88px;
@@ -507,8 +618,10 @@
           position: absolute;
           background: #e65f2b;
           box-shadow: 0px 0px 2px rgba(255, 255, 255, 0.25);
-        "></div>
-    <div style="
+        "
+      ></div>
+      <div
+        style="
           width: 9.77px;
           height: 9.33px;
           left: 10.17px;
@@ -516,8 +629,10 @@
           position: absolute;
           background: #e65f2b;
           box-shadow: 0px 0px 2px rgba(255, 255, 255, 0.25);
-        "></div>
-    <div style="
+        "
+      ></div>
+      <div
+        style="
           width: 9.76px;
           height: 7.76px;
           left: 15.6px;
@@ -525,8 +640,10 @@
           position: absolute;
           background: #e65f2b;
           box-shadow: 0px 0px 2px rgba(255, 255, 255, 0.25);
-        "></div>
-    <div style="
+        "
+      ></div>
+      <div
+        style="
           width: 9.77px;
           height: 9.33px;
           left: 19.71px;
@@ -534,8 +651,10 @@
           position: absolute;
           background: #e65f2b;
           box-shadow: 0px 0px 2px rgba(255, 255, 255, 0.25);
-        "></div>
-    <div style="
+        "
+      ></div>
+      <div
+        style="
           width: 9.4px;
           height: 8.37px;
           left: 21.78px;
@@ -543,18 +662,19 @@
           position: absolute;
           background: #e65f2b;
           box-shadow: 0px 0px 2px rgba(255, 255, 255, 0.25);
-        "></div>
-  </div>
+        "
+      ></div>
+    </div>
 
-  <script>
-    // Array to store chat history
-    const chatHistory = [];
+    <script>
+      // Array to store chat history
+      const chatHistory = [];
 
-    function sendMessage() {
-      const userMessage = document.getElementById("user-message").value;
-      const modelSelection = document.getElementById("model-selection").value;
-      const dbSelection = document.getElementById("db-selection").value;
-      const agentSelection = document.getElementById("agent-selection").value;
+      function sendMessage() {
+        const userMessage = document.getElementById("user-message").value;
+        const modelSelection = document.getElementById("model-selection").value;
+        const dbSelection = document.getElementById("db-selection").value;
+        const agentSelection = document.getElementById("agent-selection").value;
 
         const model_name = "gpt3";
         const db_name = "sakila_master";
@@ -594,9 +714,9 @@
             document.getElementById("user-message").value = "";
           })
           .catch((error) => console.error("Error:", error));
-    }
+      }
 
-       function displayChatHistory() {
+      function displayChatHistory() {
         // Display the entire chat history in the messages div
         const messagesDiv = document.getElementById("messages");
         messagesDiv.innerHTML = "";
@@ -616,27 +736,25 @@
         messagesDiv.scrollTop = messagesDiv.scrollHeight;
       }
 
+      function updateModel() {
+        const selectedModel = document.getElementById("model-selection").value;
 
-    function updateModel() {
-      const selectedModel = document.getElementById("model-selection").value;
+        // Update chat history with a message indicating the model change
+        chatHistory.push({ bot: `Model updated to: ${selectedModel}` });
 
-      // Update chat history with a message indicating the model change
-      chatHistory.push({ bot: `Model updated to: ${selectedModel}` });
+        // Display the updated chat history
+        displayChatHistory();
+      }
 
-      // Display the updated chat history
-      displayChatHistory();
-    }
+      function updateDB() {
+        const selectedDB = document.getElementById("db-selection").value;
 
-    function updateDB() {
-      const selectedDB = document.getElementById("db-selection").value;
+        // Update chat history with a message indicating the database update
+        chatHistory.push({ bot: `Database updated using: ${selectedDB}` });
 
-      // Update chat history with a message indicating the database update
-      chatHistory.push({ bot: `Database updated using: ${selectedDB}` });
-
-      // Display the updated chat history
-      displayChatHistory();
-    }
-  </script>
-</body>
-
+        // Display the updated chat history
+        displayChatHistory();
+      }
+    </script>
+  </body>
 </html>
