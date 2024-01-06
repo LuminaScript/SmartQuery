@@ -30,8 +30,8 @@ def read_api_key(file_path):
     with open(file_path, 'r') as file:
         return file.read().strip()
 
-REPLICATE_API_TOKE = read_api_key('/Users/rickyruan/Desktop/API_Key/REPLICATE_API_TOKEN.txt')
-OPENAI_API_KEY = read_api_key('/Users/rickyruan/Desktop/API_Key/OPENAI_API_KEY.txt')
+REPLICATE_API_TOKE = read_api_key('../API_Key/REPLICATE_API_TOKEN.txt')
+OPENAI_API_KEY = read_api_key('../API_Key/OPENAI_API_KEY.txt')
 
 os.environ["REPLICATE_API_TOKEN"] = REPLICATE_API_TOKE
 os.environ["OPENAI_API_KEY"] = OPENAI_API_KEY
