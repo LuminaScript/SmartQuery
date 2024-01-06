@@ -44,7 +44,7 @@ def process_question():
         })
 
     else:
-        response = freechat_memory(memory, model_name, question)
+        response = freechat_memory(memory, "gpt3", question)
         return jsonify({
             "Query": response,
             "Result": "null",
