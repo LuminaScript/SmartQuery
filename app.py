@@ -65,21 +65,21 @@ def chat():
 def signup():
     return render_template("signup.html")
 
-@app.route('/api/generate_response', methods=['POST'])
-def generate_response():
-    user_message = request.json['message']
+# @app.route('/api/generate_response', methods=['POST'])
+# def generate_response():
+#     user_message = request.json['message']
 
-    # Call your API or perform any desired processing
-    response_message = f"Received: {user_message}. This is a generated response."
+#     # Call your API or perform any desired processing
+#     response_message = f"Received: {user_message}. This is a generated response."
 
-    return jsonify({'message': response_message})
+#     return jsonify({'message': response_message})
 
 
-@app.route('/api/set_model', methods=['POST'])
-def set_model():
-    global selected_model
-    selected_model = request.json['model']
-    return jsonify({'message': f'Selected model set to {selected_model}'})
+# @app.route('/api/set_model', methods=['POST'])
+# def set_model():
+#     global selected_model
+#     selected_model = request.json['model']
+#     return jsonify({'message': f'Selected model set to {selected_model}'})
 
 
 @app.route('/login')
@@ -89,6 +89,6 @@ def login():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=8000)
 
 

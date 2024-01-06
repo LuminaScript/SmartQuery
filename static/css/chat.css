@@ -51,14 +51,16 @@ body {
 }
 
 .chat-box {
-    width: 748.52px;
-    height: 480px;
+    width: 60%; /* Adjust the width as needed */
+    max-width: 800px; /* Set a max-width if necessary */
+    height: 80%;
     background: white;
     box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.05);
     border-radius: 6px;
     padding: 20px;
     position: absolute;
     left: 340px;
+    right: 340px;
     top: 100px;
     display: flex;
     flex-direction: column;
@@ -104,4 +106,49 @@ body {
     border-radius: 4px;
     font-size: 16px;
     cursor: pointer;
+}
+
+#model-selection,
+#db-selection,
+#agent-selection {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: #f1f1f1;
+    /* Match the background color of the sidebar title */
+}
+
+#model-selection:hover,
+#db-selection:hover,
+#agent-selection:hover,
+button:hover {
+    background-color: #ddd;
+    /* Lighten the background color on hover */
+}
+
+/* Optionally, you can style the labels for better visibility */
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: #333;
+    /* Match the text color of the sidebar title */
+}
+
+/* Optionally, you can add styling for the button */
+button {
+    padding: 10px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
 }
