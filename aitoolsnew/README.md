@@ -3,6 +3,7 @@
 ## Tool Overview
 
 Text2SQL is an innovative tool developed on langchain for text to sql problems. 
+[https://github.com/](https://github.com/WeitaoLu/Text2SQL)
 
 
 ### Included:
@@ -32,3 +33,15 @@ https://python.langchain.com/docs/integrations/llms/ollama
 2.	Terminal execute: pip3 install openai
 3.	Terminal execute: pip3 install langchain
 4.	Download and unzip API_key.zip. Put folder API_key and codes(Text2SQL) in the same path.
+
+
+
+### Quick Start：
+
+test functions:
+
+comment the examples in text2sql.py and run python text2sql.py
+
+test apis:
+
+run python api.py and test using Postman.
