@@ -64,7 +64,7 @@ def process_question():
             "Description": "null"
         })
 
-@app.route('/')
+
 @app.route('/home')
 def index():
     return render_template("index.html")
@@ -95,6 +95,7 @@ def signup():
 #     return jsonify({'message': f'Selected model set to {selected_model}'})
 
 
+@app.route('/')
 @app.route('/login')
 def login():
     return render_template("login.html")
