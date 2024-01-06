@@ -691,7 +691,7 @@
         const db_name = "sakila_master";
 
         // Send user message to the /text2sql route
-        fetch("/text2sql", {
+        fetch("/process_question", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -705,10 +705,10 @@
           .then((response) => response.json())
           .then((data) => {
             // Assuming the response contains a field `response` with the text2sql result
-            const sqlQuery = data.query || "No SQL query generated";
-            const sqlResult = data.sql_result || "No SQL result available";
+            const sqlQuery = data.Query || "No SQL query generated";
+            const sqlResult = data.Result || "No SQL result available";
             const resultDescription =
-              data.result_description || "No description available";
+              data.Description || "No description available";
 
             // Add each response part to the chat history
             chatHistory.push({ user: "Query", bot: sqlQuery });
