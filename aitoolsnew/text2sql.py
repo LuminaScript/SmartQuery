@@ -319,7 +319,7 @@ def sql_agent_memory(memory,question,db_name="Chinook"):
 
 '''
 
-question = "What are the top 3 best-selling artists from the database?"
+# question = "What are the top 3 best-selling artists from the database?"
 #example of using the model
 # example 1: auto agent
 # print(sql_agent(question))
@@ -338,20 +338,20 @@ question = "What are the top 3 best-selling artists from the database?"
 # print(explain)
 
 # example 4: step by step usage using memory
-memory = ConversationBufferMemory(return_messages=True) # reset memory
-while True:
-    question = input("Enter your question:>> ")
-    if question == "exit":
-        break
-    elif question.startswith("@"):
-        question=question[1:]
-        sqlfromtext = text2sql_memory(memory, "gpt3", "Chinook", question)
-        print("AI response:", sqlfromtext)
-        sql_result = execute_sql_memory(sqlfromtext, "Chinook", memory)
-        print("SQL result:", sql_result)
-        result_description = sqlresult2text("gpt3", "Chinook", question, sqlfromtext, sql_result)
-        print("AI response:", result_description)
-    elif question.startswith("#"):
-        print("AI response:",sql_agent(question))
-    else:
-        print("AI response:",freechat_memory(memory,"gpt3",question))
+# memory = ConversationBufferMemory(return_messages=True) # reset memory
+# while True:
+#     question = input("Enter your question:>> ")
+#     if question == "exit":
+#         break
+#     elif question.startswith("@"):
+#         question=question[1:]
+#         sqlfromtext = text2sql_memory(memory, "gpt3", "Chinook", question)
+#         print("AI response:", sqlfromtext)
+#         sql_result = execute_sql_memory(sqlfromtext, "Chinook", memory)
+#         print("SQL result:", sql_result)
+#         result_description = sqlresult2text("gpt3", "Chinook", question, sqlfromtext, sql_result)
+#         print("AI response:", result_description)
+#     elif question.startswith("#"):
+#         print("AI response:",sql_agent(question))
+#     else:
+#         print("AI response:",freechat_memory(memory,"gpt3",question))
