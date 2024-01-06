@@ -293,24 +293,79 @@ def freechat_memory(memory,model_name,user_input):
     
     return conversation({"question": user_input})['text']
 
+# @app.route('/text2sql', methods=['POST'])
+# def handle_text2sql():
+#     memory = ConversationBufferMemory(return_messages=True) 
+#     data = request.get_json()
+#     model_name = data['model_name']
+#     db_name = data['db_name']
+#     question = data['question']
+#     if question.startswith("@"):
+#         sql_query = text2sql_memory(memory, model_name, db_name, question)
+#         print("AI response:", sql_query)
+#         sql_result = execute_sql_memory(sql_query, "Chinook", memory)
+#         print("SQL result:", sql_result)
+#         response = sqlresult2text("gpt3", "Chinook", question, sql_query, sql_result)
+#         print("AI response:", response)
+#         result_description = f"{response}"[9:-1]
+#     else:
+#         sql_query = freechat_memory(memory,"gpt3",question)
+#         print("AI response:",sql_query)
+#         sql_result = "null"
+#         result_description = "null"
+#     # sql_query = text2sql(model_name, db_name, question)
+#     response = {
+#         "query": sql_query,
+#         "sql_result": sql_result,
+#         "result_description": result_description,
+#         "message": "SQL query generated successfully"
+#     }
+
+#     # Log the response for debugging
+#     print("response: ")
+#     print(response)
+
+#     # Return the response as JSON
+#     return jsonify(response)
+
 @app.route('/text2sql', methods=['POST'])
 def handle_text2sql():
+    memory = ConversationBufferMemory(return_messages=True) 
     data = request.get_json()
     model_name = data['model_name']
     db_name = data['db_name']
     question = data['question']
-    sql_query = text2sql(model_name, db_name, question)
+
+    # Initialize variables
+    sql_query = None
+    sql_result = None
+    result_description = None
+
+    if question.startswith("@"):
+        question = question[1:]
+        sql_query = text2sql_memory(memory, model_name, db_name, question)
+        print("AI response:", sql_query)
+        sql_result = execute_sql_memory(sql_query, "Chinook", memory)
+        print("SQL result:", sql_result)
+        response = sqlresult2text("gpt3", "Chinook", question, sql_query, sql_result)
+        print("AI response:", response)
+        result_description = f"{response}"[9:-1]  # Ensure this slicing is what you intend
+    else:
+        sql_query = freechat_memory(memory, "gpt3", question)
+        print("AI response:", sql_query)
+        sql_result = "null"
+        result_description = "null"
+
     response = {
         "query": sql_query,
+        "sql_result": sql_result,
+        "result_description": result_description,
         "message": "SQL query generated successfully"
     }
 
-    # Log the response for debugging
-    print("response: ")
-    print(response)
-
-    # Return the response as JSON
+    print("response: ", response)
     return jsonify(response)
+
 @app.route('/')
 @app.route('/home')
 def index():
