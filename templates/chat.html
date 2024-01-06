@@ -134,7 +134,7 @@
             <label for="agent-selection">Choose education mode:</label>
             <select id="agent-selection">
               <option value="agent1">Detailed Explanation</option>
-              <option value="agent2">One Step Text2Sql Translation</option>
+              <option value="agent2">Free Chat</option>
               <option value="agent3">Step by Step Text2Sql</option>
               <!-- Add more options as needed -->
             </select>
@@ -258,7 +258,7 @@
                   "Description:" +
                   "\n" +
                   resultDescription;
-                chatHistory.push({ bot: combinedResponse });
+                chatHistory.push({ bot: "Step by step text to SQL:", sqlQuery: sqlQuery, sqlResult: sqlResult, resultDescription: resultDescription });
               }
               // Add the user message and SQL query response to chat history
               // chatHistory.push({ user: userMessage, bot: sqlResponse });
@@ -285,11 +285,55 @@
             // Add bot message
             if (chat.bot !== undefined) {
               messagesDiv.innerHTML += `<div class="message received"><span class="text">${chat.bot}</span></div>`;
+              if (chat.sqlQuery !== undefined) {
+                console.log("YAOMUYIN_DEBUG show chat.sqlQuery")
+                console.log(sqlQuery)
+                messagesDiv.innerHTML += `
+                <div class="message received">
+                  <button onclick="showSQLQuery(this, '${escape(chat.sqlQuery)}')">Show SQL query.</button>
+                </div>`;
+              }
+              if (chat.sqlResult !== undefined) {
+                messagesDiv.innerHTML += `
+                <div class="message received">
+                  <button onclick="showSQLResult(this, '${escape(chat.sqlResult)}')">Run SQL query, show result.</button>
+                </div>`;
+              }
+              if (chat.resultDescription !== undefined) {
+                messagesDiv.innerHTML += `
+                <div class="message received">
+                  <button onclick="showSQLDescription(this, '${escape(chat.resultDescription)}')">Explain SQL query.</button>
+                </div>`;
+              }
             }
           });
 
           // Scroll to the bottom to show the latest messages
           messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        }
+
+        function showSQLQuery(button, sqlQuery) {
+          // Replace the button with the SQL query
+          const sqlQueryDiv = document.createElement("div");
+          sqlQueryDiv.className = "message received";
+          sqlQueryDiv.innerText = unescape(sqlQuery);
+          button.parentNode.replaceChild(sqlQueryDiv, button);
+        }
+
+        function showSQLResult(button, sqlResult) {
+          // Replace the button with the SQL query
+          const sqlResultDiv = document.createElement("div");
+          sqlResultDiv.className = "message received";
+          sqlResultDiv.innerText = unescape(sqlResult);
+          button.parentNode.replaceChild(sqlResultDiv, button);
+        }
+
+        function showSQLDescription(button, sqlResult) {
+          // Replace the button with the SQL query
+          const sqlDescriptionDiv = document.createElement("div");
+          sqlDescriptionDiv.className = "message received";
+          sqlDescriptionDiv.innerText = unescape(sqlResult);
+          button.parentNode.replaceChild(sqlDescriptionDiv, button);
         }
 
         function updateModel() {
