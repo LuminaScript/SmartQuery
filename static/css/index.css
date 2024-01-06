@@ -147,7 +147,7 @@ a {
 
 .button-sign-out {
     position: absolute;
-    top: 25px;
+    top: 18px;
     left: 1300px;
     padding: 12px;
     width: 120px;
@@ -193,7 +193,7 @@ a {
     width: 1180px;
     height: 0px;
     left: 260px;
-    top: 94px;
+    top: 78px;
     position: absolute;
     border: 1px rgba(0, 0, 0, 0.08) solid;
 }
