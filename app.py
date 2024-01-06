@@ -299,6 +299,8 @@ def handle_text2sql():
     model_name = data['model_name']
     db_name = data['db_name']
     question = data['question']
+    agent = data['agent_name']
+    print("YAOMUYIN_DEBUG", model_name, db_name, question, agent)
     sql_query = text2sql(model_name, db_name, question)
     response = {
         "query": sql_query,
@@ -311,6 +313,7 @@ def handle_text2sql():
 
     # Return the response as JSON
     return jsonify(response)
+
 @app.route('/')
 @app.route('/home')
 def index():
@@ -325,21 +328,21 @@ def chat():
 def signup():
     return render_template("signup.html")
 
-@app.route('/api/generate_response', methods=['POST'])
-def generate_response():
-    user_message = request.json['message']
+# @app.route('/api/generate_response', methods=['POST'])
+# def generate_response():
+#     user_message = request.json['message']
 
-    # Call your API or perform any desired processing
-    response_message = f"Received: {user_message}. This is a generated response."
+#     # Call your API or perform any desired processing
+#     response_message = f"Received: {user_message}. This is a generated response."
 
-    return jsonify({'message': response_message})
+#     return jsonify({'message': response_message})
 
 
-@app.route('/api/set_model', methods=['POST'])
-def set_model():
-    global selected_model
-    selected_model = request.json['model']
-    return jsonify({'message': f'Selected model set to {selected_model}'})
+# @app.route('/api/set_model', methods=['POST'])
+# def set_model():
+#     global selected_model
+#     selected_model = request.json['model']
+#     return jsonify({'message': f'Selected model set to {selected_model}'})
 
 
 @app.route('/login')
@@ -347,5 +350,5 @@ def login():
     return render_template("login.html")
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=8000)
 
