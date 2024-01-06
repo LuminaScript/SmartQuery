@@ -30,8 +30,8 @@ def read_api_key(file_path):
     with open(file_path, 'r') as file:
         return file.read().strip()
 
-REPLICATE_API_TOKE = read_api_key('../API_Key/REPLICATE_API_TOKEN.txt')
-OPENAI_API_KEY = read_api_key('../API_Key/OPENAI_API_KEY.txt')
+REPLICATE_API_TOKE = read_api_key('API_Key/REPLICATE_API_TOKEN.txt')
+OPENAI_API_KEY = read_api_key('API_Key/OPENAI_API_KEY.txt')
 
 os.environ["REPLICATE_API_TOKEN"] = REPLICATE_API_TOKE
 os.environ["OPENAI_API_KEY"] = OPENAI_API_KEY
@@ -297,7 +297,7 @@ def freechat_memory(memory,model_name,user_input):
 question = "What are the top 3 best-selling artists from the database?"
 #example of using the model
 # example 1: auto agent
-# print(sql_agent(question))
+print(sql_agent(question))
 
 # example 2: end 2 end
 # print(text2sql_end2end("gpt3","Chinook",question))
