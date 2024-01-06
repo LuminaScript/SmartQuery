@@ -82,12 +82,15 @@ def text2sql(model_name,db_name,question):
 
 def execute_sql(query,db_name):
     db = SQLDatabase.from_uri(f"sqlite:///./{db_name}.db", sample_rows_in_table_info=0)
+    update_action_list = ['UPDATE','ADD','DELETE','DROP','MODIFY','INSERT']
     try:
-        result = db.run(query)
-        if result:
-            return result
-        else:
-            return "No results found."
+        if any(item in query for item in update_action_list)==False:# no update actions
+            result = db.run(query)
+            if result:
+                return result
+            else:
+                return "No results found."
+        else: return 'Finished' #update actions return no result but "Finished"
     except Exception as e:
         error_message = str(e)
         print(SQL_FAIL_MESSAGE,error_message)
