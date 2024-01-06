@@ -1,0 +1,122 @@
+/* Existing styles from your current project */
+/* ... */
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #eaf7f8;
+}
+
+.container {
+    width: 792px;
+    height: 600px;
+    /* Adjust the height as needed */
+    background: white;
+    border-radius: 47px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.content {
+    padding: 40px;
+}
+
+.title {
+    font-size: 28px;
+    font-family: Poppins, sans-serif;
+    font-weight: 800;
+    line-height: 1.2;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    font-size: 14px;
+    font-family: Poppins, sans-serif;
+    font-weight: 500;
+    line-height: 1.5;
+    color: #333;
+}
+
+.form-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    font-family: Poppins, sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #1f485b;
+    color: white;
+    font-size: 16px;
+    font-family: Poppins, sans-serif;
+    font-weight: 600;
+    line-height: 1.5;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.form-button:hover {
+    background-color: #164053;
+}
+
+.or-divider {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    color: #ccc;
+}
+
+.login-link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.login-link a {
+    text-decoration: none;
+    color: #1f485b;
+    font-weight: 600;
+}
+
+/* Additional styles to match your previous project */
+.jumbotron {
+    background-color: hsl(0, 0%, 96%);
+    color: #343a40;
+    padding: 40px;
+    border-radius: 47px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.jumbotron h1 {
+    font-size: 3rem;
+    letter-spacing: -4px;
+    color: #343a40;
+}
+
+.jumbotron p {
+    color: hsl(217, 10%, 33%);
+    font-size: 1.1rem;
+    font-weight: 300;
+    max-width: 480px;
+    margin-top: 2rem;
+}
+
+/* You will need to translate other specific styles from your Ruby project to CSS here. */
+
+/* Ensure that the .container class from the previous project does not conflict with the .container class from your current project. Consider renaming one of them. */
