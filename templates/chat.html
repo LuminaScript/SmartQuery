@@ -133,9 +133,9 @@
           <div>
             <label for="agent-selection">Choose education mode:</label>
             <select id="agent-selection">
-              <option value="agent1">Detailed Explanation</option>
               <option value="agent2">Free Chat</option>
               <option value="agent3">Step by Step Text2Sql</option>
+              <option value="agent1">Detailed Explanation</option>
               <!-- Add more options as needed -->
             </select>
           </div>
@@ -302,7 +302,7 @@
               if (chat.resultDescription !== undefined) {
                 messagesDiv.innerHTML += `
                 <div class="message received">
-                  <button onclick="showSQLDescription(this, '${escape(chat.resultDescription)}')">Explain SQL query.</button>
+                  <button onclick="showSQLDescription(this, '${escape(chat.resultDescription)}')">Explain SQL result.</button>
                 </div>`;
               }
             }
