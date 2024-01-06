@@ -556,58 +556,66 @@
       const dbSelection = document.getElementById("db-selection").value;
       const agentSelection = document.getElementById("agent-selection").value;
 
-      // Send user message to the /text2sql route
-      fetch("/text2sql", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          model_name: modelSelection,
-          db_name: dbSelection,
-          agent_name: agentSelection,
-          question: userMessage,
-        }),
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          // Assuming the response contains a field `response` with the text2sql result
-          const sqlResponse = data.query || "No response from server";
+        const model_name = "gpt3";
+        const db_name = "sakila_master";
 
-          // Add the user message and SQL query response to chat history
-          chatHistory.push({ user: userMessage, bot: sqlResponse });
-
-          // Display the entire chat history in the chat box
-          displayChatHistory();
-
-          // Clear the input field
-          document.getElementById("user-message").value = "";
+        // Send user message to the /text2sql route
+        fetch("/process_question", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            model_name: model_name,
+            db_name: db_name,
+            question: userMessage,
+          }),
         })
-        .catch((error) => console.error("Error:", error));
+          .then((response) => response.json())
+          .then((data) => {
+            // Assuming the response contains a field `response` with the text2sql result
+            const sqlQuery = data.Query || "No SQL query generated";
+            const sqlResult = data.Result || "No SQL result available";
+            const resultDescription =
+              data.Description || "No description available";
+
+            // Add each response part to the chat history
+            chatHistory.push({ user: "Query", bot: sqlQuery });
+            chatHistory.push({ user: "Result", bot: sqlResult });
+            chatHistory.push({ user: "Description", bot: resultDescription });
+
+            // Add the user message and SQL query response to chat history
+            // chatHistory.push({ user: userMessage, bot: sqlResponse });
+
+            // Display the entire chat history in the chat box
+            displayChatHistory();
+
+            // Clear the input field
+            document.getElementById("user-message").value = "";
+          })
+          .catch((error) => console.error("Error:", error));
     }
 
-    function displayChatHistory() {
-      // Display the entire chat history in the messages div
-      const messagesDiv = document.getElementById("messages");
-      messagesDiv.innerHTML = "";
+       function displayChatHistory() {
+        // Display the entire chat history in the messages div
+        const messagesDiv = document.getElementById("messages");
+        messagesDiv.innerHTML = "";
 
-      chatHistory.forEach((chat) => {
-        // Add user message
-        if (chat.user !== undefined) {
-          messagesDiv.innerHTML += `<div class="message sent"><span class="text">${chat.user}</span></div>`;
-        }
-        // Add bot message
-        if (chat.bot !== undefined) {
-          messagesDiv.innerHTML += `<div class="message received"><span class="text">${chat.bot}</span></div>`;
-        }
-      });
+        chatHistory.forEach((chat) => {
+          // Add user message
+          if (chat.user !== undefined) {
+            messagesDiv.innerHTML += `<div class="message sent"><span class="text">${chat.user}</span></div>`;
+          }
+          // Add bot message
+          if (chat.bot !== undefined) {
+            messagesDiv.innerHTML += `<div class="message received"><span class="text">${chat.bot}</span></div>`;
+          }
+        });
 
-      // Scroll to the bottom to show the latest messages
-      messagesDiv.scrollTop = messagesDiv.scrollHeight;
-    }
+        // Scroll to the bottom to show the latest messages
+        messagesDiv.scrollTop = messagesDiv.scrollHeight;
+      }
 
-    // Initial display of chat history (empty)
-    displayChatHistory();
 
     function updateModel() {
       const selectedModel = document.getElementById("model-selection").value;
