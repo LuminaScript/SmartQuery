@@ -1,11 +1,15 @@
 .full-screen {
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     top: 0;
     bottom: 0;
     right: 0;
     position: fixed;
     background: #eaf7f8;
+}
+
+a {
+    text-decoration: none;
 }
 
 .sidebar {
@@ -57,6 +61,27 @@
     align-items: center;
     gap: 16px;
     display: inline-flex;
+}
+
+.icons-box {
+    width: 22px;
+    height: 22px;
+    padding: 1.15px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.icons {
+    width: 35px;
+    height: 35px;
+    padding-left: 1.37px;
+    padding-right: 1.37px;
+    padding-top: 1.15px;
+    padding-bottom: 1.15px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
 }
 
 .menu-tasks {
@@ -120,10 +145,10 @@
     color: #ffffff;
 }
 
-.sign-out-button {
+.button-sign-out {
     position: absolute;
-    top: 30px;
-    left: 1200px;
+    top: 25px;
+    left: 1300px;
     padding: 12px;
     width: 120px;
     background-color: #8fd0ef;
@@ -138,8 +163,30 @@
     border-radius: 10px;
 }
 
-.sign-out-button:hover {
-    background-color: #74b7e0;
+.button-sign-out:hover {
+    background-color: #26a0ec;
+}
+
+.button-chat {
+    position: absolute;
+    top: 30px;
+    left: 1150px;
+    padding: 12px;
+    width: 120px;
+    background-color: #7ae384;
+    color: white;
+    font-size: 16px;
+    font-family: Poppins, sans-serif;
+    font-weight: 600;
+    line-height: 1.5;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.button-chat:hover {
+    background-color: #3de158;
 }
 
 .top-line {
@@ -192,10 +239,16 @@
     display: inline-flex;
 }
 
-.logo {
-    width: 31.18px;
-    height: 30.94px;
-    left: 30px;
-    top: 32px;
+.logo-box {
+    width: 55px;
+    height: 55px;
+    left: 20px;
+    top: 20px;
+    position: absolute;
+}
+
+.logo-img {
+    width: 55px;
+    height: 55px;
     position: absolute;
 }
