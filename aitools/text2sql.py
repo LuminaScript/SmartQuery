@@ -66,7 +66,7 @@ def text2sql(model_name,db_name,question):
     # Using Closure desgin pattern to pass the db to the model
     def get_schema(_):
         return db.get_table_info()
-    template = """Based on the table schema below, write a SQLite query that would answer the user's question:
+    template = """Based on the table schema below, write a SQLite query that would answer the user's question. Only output the SQL query:
     {schema}
 
     Question: {question}
@@ -144,7 +144,7 @@ def text2sql_end2end(model_name,db_name,question):
             print(SQL_FAIL_MESSAGE)
             return SQL_FAIL_MESSAGE
 
-    template = """Based on the table schema below, write a SQLite query that would answer the user's question:
+    template = """Based on the table schema below, write a SQLite query that would answer the user's question. Only output the SQL query:  
     {schema}
 
     Question: {question}
