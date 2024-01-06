@@ -1,4 +1,4 @@
-
+from ansi2html import Ansi2HTMLConverter
 
 from flask import Flask, render_template, request, jsonify
 from text2sql import (text2sql_memory, execute_sql_memory, 
@@ -9,6 +9,9 @@ import json
 import os
 app = Flask(__name__)
 memory=ConversationBufferMemory()
+def convert_newlines_to_html(text):
+    text=f"{text}"
+    return text.replace("\n", "<br>")
 
 @app.route('/process_question', methods=['POST'])
 def process_question():
@@ -29,6 +32,8 @@ def process_question():
         print("SQL result:", sql_result)
         result_description = sqlresult2text("gpt3", "Chinook", question, sqlfromtext, sql_result)
         # print("AI response:", result_description)
+        sqlfromtext = convert_newlines_to_html(sqlfromtext)
+        sql_result = convert_newlines_to_html(sql_result)
         return jsonify({
             "Query": sqlfromtext,
             "Result": sql_result,
@@ -37,7 +42,9 @@ def process_question():
 
     elif question.startswith("#"):
         question=question[1:]#remove #
-        response = sql_agent(question)
+        response = sql_agent(question,"Chinook") 
+        conv = Ansi2HTMLConverter()
+        response = conv.convert(response)
         return jsonify({
             "Query": response,
             "Result": "null",
@@ -46,6 +53,7 @@ def process_question():
 
     else:
         response = freechat_memory(memory, "gpt3", question)
+        response = convert_newlines_to_html(response)
         return jsonify({
             "Query": response,
             "Result": "null",
