@@ -22,7 +22,7 @@ def process_question():
         return jsonify({"error": "No question provided"}), 400
 
     if question.startswith("@"):
-        question=question[1:]
+        question=question[1:]#remove @
         sqlfromtext = text2sql_memory(memory, "gpt3", "Chinook", question)
         print("AI response:", sqlfromtext)
         sql_result = execute_sql_memory(sqlfromtext, "Chinook", memory)
@@ -36,6 +36,7 @@ def process_question():
         })
 
     elif question.startswith("#"):
+        question=question[1:]#remove #
         response = sql_agent(question)
         return jsonify({
             "Query": response,
