@@ -1,89 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SQL AI Chat</title>
+    <link rel="stylesheet" href="../static/css/index.css" />
+    <link rel="stylesheet" href="../static/css/chat.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SQL AI Chat</title>
-  <link rel="stylesheet" href="../static/css/index.css" />
-  <link rel="stylesheet" href="../static/css/chat.css" />
-</head>
+  <body>
+    <div class="full-screen">
+      <!-- Line under the Dashboard  -->
+      <div class="top-line"></div>
 
-<body>
-  <div class="full-screen">
-
-
-    <!-- Line under the Dashboard  -->
-    <div class="top-line"></div>
-
-    <!-- sidebar content -->
-    <div class="sidebar">
-      <div class="sidebar-box">
-
-        <!-- icon-project -->
-        <div class="menu-project">
-          <div class="icons-box">
-            <img class="icons" src="/static/images/icons/projects_icon.png" alt="">
-          </div>
-          <div class="menu-text">
-            Projects
-          </div>
-        </div>
-
-        <!-- icon-tasks  -->
-        <div class="menu-tasks">
-          <div class="icons-box">
-            <img class="icons" src="/static/images/icons/tasks_icon.png" alt="">
-          </div>
-          <div class="menu-text">
-            Tasks
-          </div>
-        </div>
-
-        <!-- icon dashboard -->
-        <div class="menu-dashboard">
-
-          <div class="icons-box">
-            <a href="/home">
-              <img class="icons" src="/static/images/icons/dashboard_icon.png" alt="">
-            </a>
-          </div>
-          <div class="menu-text">
-            <a href="/home" style="text-decoration: none; color: inherit;">Dashboard</a>
-          </div>
-        </div>
-
-        <!-- icon Chat -->
-        <div class="menu-users">
-          <div class="icons-box">
-            <a href="/chat" style="text-decoration: none;">
-              <img class="icons" src="/static/images/icons/chattings_icons.png" alt="">
-            </a>
-          </div>
-          <a href="/chat" style="text-decoration: none;">
-            <div class="menu-text">
-              Smart Query
+      <!-- sidebar content -->
+      <div class="sidebar">
+        <div class="sidebar-box">
+          <!-- icon-project -->
+          <div class="menu-project">
+            <div class="icons-box">
+              <img
+                class="icons"
+                src="/static/images/icons/projects_icon.png"
+                alt=""
+              />
             </div>
-          </a>
-        </div>
-
-        <div class="menu-settings">
-          <div class="icons-box">
-            <img class="icons" src="/static/images/icons/settings_icons.png" alt="">
+            <div class="menu-text">Projects</div>
           </div>
-          <div class="menu-text">
-            Menu settings
+
+          <!-- icon-tasks  -->
+          <div class="menu-tasks">
+            <div class="icons-box">
+              <img
+                class="icons"
+                src="/static/images/icons/tasks_icon.png"
+                alt=""
+              />
+            </div>
+            <div class="menu-text">Tasks</div>
+          </div>
+
+          <!-- icon dashboard -->
+          <div class="menu-dashboard">
+            <div class="icons-box">
+              <a href="/home">
+                <img
+                  class="icons"
+                  src="/static/images/icons/dashboard_icon.png"
+                  alt=""
+                />
+              </a>
+            </div>
+            <div class="menu-text">
+              <a href="/home" style="text-decoration: none; color: inherit"
+                >Dashboard</a
+              >
+            </div>
+          </div>
+
+          <!-- icon Chat -->
+          <div class="menu-users">
+            <div class="icons-box">
+              <a href="/chat" style="text-decoration: none">
+                <img
+                  class="icons"
+                  src="/static/images/icons/chattings_icons.png"
+                  alt=""
+                />
+              </a>
+            </div>
+            <a href="/chat" style="text-decoration: none">
+              <div class="menu-text">Smart Query</div>
+            </a>
+          </div>
+
+          <div class="menu-settings">
+            <div class="icons-box">
+              <img
+                class="icons"
+                src="/static/images/icons/settings_icons.png"
+                alt=""
+              />
+            </div>
+            <div class="menu-text">Menu settings</div>
           </div>
         </div>
-
       </div>
-    </div>
 
-    <div class="chat-box">
-      <!-- Chat content goes here -->
-      <div class="chat-title">SQL AI Teaching Assistant</div>
+      <div class="chat-box">
+        <!-- Chat content goes here -->
+        <div class="chat-title">SQL AI Teaching Assistant</div>
 
-      <!-- <div class="chat-content">
+        <!-- <div class="chat-content">
 
       <div>
         <label for="model-selection">Choose AI Model:</label>
@@ -101,164 +109,210 @@
         </select>
       </div> -->
 
-      <div class="chat-content">
-        <!-- AI model selection -->
-        <div>
-          <label for="model-selection">Choose AI Model:</label>
-          <select id="model-selection" onchange="updateModel()">
-            <option value="gpt4">gpt4</option>
-            <option value="gpt3">gpt3</option>
-            <!-- Add more options as needed -->
-          </select>
-        </div>
+        <div class="chat-content">
+          <!-- AI model selection -->
+          <div>
+            <label for="model-selection">Choose AI Model:</label>
+            <select id="model-selection" onchange="updateModel()">
+              <option value="gpt4">gpt4</option>
+              <option value="gpt3">gpt3</option>
+              <!-- Add more options as needed -->
+            </select>
+          </div>
 
-        <div>
-          <label for="db-selection">Choose sample DB:</label>
-          <select id="db-selection" onchange="updateDB()">
-            <option value="aitools/nba_roster">nba_roster</option>
-            <option value="aitools/Chinook">Chinook</option>
-            <!-- Add more options as needed -->
-          </select>
-        </div>
+          <div>
+            <label for="db-selection">Choose sample DB:</label>
+            <select id="db-selection" onchange="updateDB()">
+              <option value="aitools/nba_roster">nba_roster</option>
+              <option value="aitools/Chinook">Chinook</option>
+              <!-- Add more options as needed -->
+            </select>
+          </div>
 
-        <!-- TODO: update agent values -->
-        <div>
-          <label for="agent-selection">Choose education mode:</label>
-          <select id="agent-selection">
-            <option value="agent1">Step by step</option>
-            <option value="agent2">One step</option>
-            <!-- Add more options as needed -->
-          </select>
-        </div>
+          <!-- TODO: update agent values -->
+          <div>
+            <label for="agent-selection">Choose education mode:</label>
+            <select id="agent-selection">
+              <option value="agent1">Detailed Explanation</option>
+              <option value="agent2">One Step Text2Sql Translation</option>
+              <option value="agent3">Step by Step Text2Sql</option>
+              <!-- Add more options as needed -->
+            </select>
+          </div>
 
-        <!-- Sample messages -->
-        <div class="message received">
-          <span class="text">Hi there! How can I help you today?</span>
+          <!-- Sample messages -->
+          <div class="message received">
+            <span class="text">Hi there! How can I help you today?</span>
+          </div>
+          <div class="message sent">
+            <span class="text">Can you assist me with SQL queries?</span>
+          </div>
+          <div class="message received">
+            <span class="text">Sure!</span>
+          </div>
+          <!-- More messages... -->
+          <div id="messages"></div>
         </div>
-        <div class="message sent">
-          <span class="text">Can you assist me with SQL queries?</span>
+        <div class="message-input">
+          <input
+            type="text"
+            id="user-message"
+            placeholder="Type a message..."
+          />
+          <button onclick="sendMessage()">Send</button>
         </div>
-        <div class="message received">
-          <span class="text">Sure!</span>
-        </div>
-        <!-- More messages... -->
-        <div id="messages"></div>
       </div>
-      <div class="message-input">
-        <input type="text" id="user-message" placeholder="Type a message..." />
-        <button onclick="sendMessage()">Send</button>
+
+      <!-- Sidebar title <Edusmart> -->
+      <div class="menu-title">
+        <a href="/home" style="text-decoration: none; color: inherit"
+          >EduSmart</a
+        >
       </div>
-    </div>
 
+      <!-- Logo -->
+      <div class="logo-box">
+        <a href="/home">
+          <img class="logo-img" src="../static/images/logo1-1.jpg" " alt="">
+        </a>
+      </div>
 
-    <!-- Sidebar title <Edusmart> -->
-    <div class="menu-title">
-      <a href="/home" style="text-decoration: none; color: inherit;">EduSmart</a>
-    </div>
+      <button class="button-sign-out">
+        <a href="/login" style="text-decoration: none; color: #ffffff"
+          >Sign Out</a
+        >
+      </button>
 
-    <!-- Logo -->
-    <div class="logo-box">
-      <a href="/home">
-        <img class="logo-img" src="../static/images/logo1-1.jpg" " alt="">
-      </a>
-    </div>
+      <script>
+        // Array to store chat history
+        const chatHistory = [];
 
-    <button class=" button-sign-out">
-      <a href="/login" style="text-decoration: none; color: #ffffff;">Sign Out</a>
-    </button>
+        function sendMessage() {
+          userMessage = document.getElementById("user-message").value;
+          const modelSelection =
+            document.getElementById("model-selection").value;
+          const dbSelection = document.getElementById("db-selection").value;
+          const agentSelection =
+            document.getElementById("agent-selection").value;
+          console.log(userMessage);
+          console.log(dbSelection);
+          console.log(agentSelection);
+          // const model_name = "gpt3";
+          // const db_name = "sakila_master";
+          chatHistory.push({ user: userMessage });
 
-    <script>
-      // Array to store chat history
-      const chatHistory = [];
+          if (agentSelection === "agent1") {
+            userMessage = "#" + userMessage;
+          }
 
-      function sendMessage() {
-        const userMessage = document.getElementById("user-message").value;
-        const modelSelection = document.getElementById("model-selection").value;
-        const dbSelection = document.getElementById("db-selection").value;
-        const agentSelection = document.getElementById("agent-selection").value;
+          if (agentSelection === "agent3") {
+            userMessage = "@" + userMessage;
+          }
 
-        const model_name = "gpt3";
-        const db_name = "sakila_master";
-
-        // Send user message to the /text2sql route
-        fetch("/process_question", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            model_name: model_name,
-            db_name: db_name,
-            question: userMessage,
-          }),
-        })
-          .then((response) => response.json())
-          .then((data) => {
-            // Assuming the response contains a field `response` with the text2sql result
-            const sqlQuery = data.Query || "No SQL query generated";
-            const sqlResult = data.Result || "No SQL result available";
-            const resultDescription =
-              data.Description || "No description available";
-
-            // Add each response part to the chat history
-            chatHistory.push({ user: "Query", bot: sqlQuery });
-            chatHistory.push({ user: "Result", bot: sqlResult });
-            chatHistory.push({ user: "Description", bot: resultDescription });
-
-            // Add the user message and SQL query response to chat history
-            // chatHistory.push({ user: userMessage, bot: sqlResponse });
-
-            // Display the entire chat history in the chat box
-            displayChatHistory();
-
-            // Clear the input field
-            document.getElementById("user-message").value = "";
+          // Send user message to the /text2sql route
+          fetch("/process_question", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              model_name: modelSelection,
+              db_name: dbSelection,
+              question: userMessage,
+            }),
           })
-          .catch((error) => console.error("Error:", error));
-      }
+            .then((response) => response.json())
+            .then((data) => {
+              // Assuming the response contains a field `response` with the text2sql result
+              sqlQuery = data.Query + "\n" || "No SQL query generated";
+              sqlResult = data.Result + "\n" || "No SQL result available";
+              resultDescription =
+                data.Description || "No description available";
 
-      function displayChatHistory() {
-        // Display the entire chat history in the messages div
-        const messagesDiv = document.getElementById("messages");
-        messagesDiv.innerHTML = "";
+              // Add each response part to the chat history
+              console.log("agentSelection in resp: ");
+              console.log(agentSelection);
+              if (agentSelection !== "agent3") {
+                // chatHistory.push({ bot: "Query Translation" });
 
-        chatHistory.forEach((chat) => {
-          // Add user message
-          if (chat.user !== undefined) {
-            messagesDiv.innerHTML += `<div class="message sent"><span class="text">${chat.user}</span></div>`;
-          }
-          // Add bot message
-          if (chat.bot !== undefined) {
-            messagesDiv.innerHTML += `<div class="message received"><span class="text">${chat.bot}</span></div>`;
-          }
-        });
+                chatHistory.push({ bot: sqlQuery });
+              }
 
-        // Scroll to the bottom to show the latest messages
-        messagesDiv.scrollTop = messagesDiv.scrollHeight;
-      }
+              // if (agentSelection == "agent2") {
+              //   chatHistory.push({ bot: "Quest Result" });
+              //   chatHistory.push({ bot: sqlResult });
+              //   chatHistory.push({ bot: "Description" });
+              //   chatHistory.push({ bot: resultDescription });
+              // }
+              if (agentSelection === "agent3") {
+                // Combine sqlQuery, sqlResult, and resultDescription into one message
+                const combinedResponse =
+                  "SQL Query:" +
+                  "\n" +
+                  sqlQuery +
+                  "\n\n" +
+                  "Query Result:" +
+                  "\n" +
+                  sqlResult +
+                  "\n\n" +
+                  "Description:" +
+                  "\n" +
+                  resultDescription;
+                chatHistory.push({ bot: combinedResponse });
+              }
+              // Add the user message and SQL query response to chat history
+              // chatHistory.push({ user: userMessage, bot: sqlResponse });
 
-      function updateModel() {
-        const selectedModel = document.getElementById("model-selection").value;
+              // Display the entire chat history in the chat box
+              displayChatHistory();
 
-        // Update chat history with a message indicating the model change
-        chatHistory.push({ bot: `Model updated to: ${selectedModel}` });
+              // Clear the input field
+              document.getElementById("user-message").value = "";
+            })
+            .catch((error) => console.error("Error:", error));
+        }
 
-        // Display the updated chat history
-        displayChatHistory();
-      }
+        function displayChatHistory() {
+          // Display the entire chat history in the messages div
+          const messagesDiv = document.getElementById("messages");
+          messagesDiv.innerHTML = "";
 
-      function updateDB() {
-        const selectedDB = document.getElementById("db-selection").value;
+          chatHistory.forEach((chat) => {
+            // Add user message
+            if (chat.user !== undefined) {
+              messagesDiv.innerHTML += `<div class="message sent"><span class="text">${chat.user}</span></div>`;
+            }
+            // Add bot message
+            if (chat.bot !== undefined) {
+              messagesDiv.innerHTML += `<div class="message received"><span class="text">${chat.bot}</span></div>`;
+            }
+          });
 
-        // Update chat history with a message indicating the database update
-        chatHistory.push({ bot: `Database updated using: ${selectedDB}` });
+          // Scroll to the bottom to show the latest messages
+          messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        }
 
-        // Display the updated chat history
-        displayChatHistory();
-      }
-    </script>
-  </div>
+        function updateModel() {
+          const selectedModel =
+            document.getElementById("model-selection").value;
 
-</body>
+          // Update chat history with a message indicating the model change
+          chatHistory.push({ bot: `Model updated to: ${selectedModel}` });
 
+          // Display the updated chat history
+          displayChatHistory();
+        }
+
+        function updateDB() {
+          const selectedDB = document.getElementById("db-selection").value;
+
+          // Update chat history with a message indicating the database update
+          chatHistory.push({ bot: `Database updated using: ${selectedDB}` });
+
+          // Display the updated chat history
+          displayChatHistory();
+        }
+      </script>
+    </div>
+  </body>
 </html>

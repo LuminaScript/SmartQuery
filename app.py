@@ -20,20 +20,24 @@ def process_question():
     # Extract data from request
     data = request.json
     question = data.get('question')
+    model_name = data.get('model_name')
+    db_name = data.get('db_name')
+    
 
     if not question:
         return jsonify({"error": "No question provided"}), 400
 
     if question.startswith("@"):
         question=question[1:]#remove @
-        sqlfromtext = text2sql_memory(memory, "gpt3", "Chinook", question)
+        sqlfromtext = text2sql_memory(memory, model_name, db_name, question)
         print("AI response:", sqlfromtext)
-        sql_result = execute_sql_memory(sqlfromtext, "Chinook", memory)
+        sql_result = execute_sql_memory(sqlfromtext, db_name, memory)
         print("SQL result:", sql_result)
-        result_description = sqlresult2text("gpt3", "Chinook", question, sqlfromtext, sql_result)
+        result_description = sqlresult2text(model_name, db_name, question, sqlfromtext, sql_result)
         # print("AI response:", result_description)
         sqlfromtext = convert_newlines_to_html(sqlfromtext)
         sql_result = convert_newlines_to_html(sql_result)
+        
         return jsonify({
             "Query": sqlfromtext,
             "Result": sql_result,
@@ -52,7 +56,7 @@ def process_question():
         })
 
     else:
-        response = freechat_memory(memory, "gpt3", question)
+        response = freechat_memory(memory, model_name, question)
         response = convert_newlines_to_html(response)
         return jsonify({
             "Query": response,
