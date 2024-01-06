@@ -1,0 +1,58 @@
+Databases:
+I.
+https://github.com/bradleygrant/sakila-sqlite3
+Sakila_master: 
+
+Queries:
+question='Find the most rented films'
+sql: 
+SELECT f.title, COUNT(r.rental_id) AS rental_count
+FROM film f
+JOIN inventory i ON f.film_id = i.film_id
+JOIN rental r ON i.inventory_id = r.inventory_id
+GROUP BY f.title
+ORDER BY rental_count DESC
+LIMIT 10;
+result: 
+[('BUCKET BROTHERHOOD', 34), ('ROCKETEER MOTHER', 33), ('SCALAWAG DUCK', 32), ('RIDGEMONT SUBMARINE', 32), ('JUGGLER HARDLY', 32), ('GRIT CLOCKWORK', 32), ('FORWARD TEMPLE', 32), ('ZORRO ARK', 31), ('WIFE TURN', 31), ('TIMBERLAND SKY', 31)]
+
+question='find Customers with the Highest Total Payments:'
+sql:
+ SELECT c.first_name, c.last_name, SUM(p.amount) AS total_payments
+FROM customer c
+JOIN payment p ON c.customer_id = p.customer_id
+GROUP BY c.first_name, c.last_name
+ORDER BY total_payments DESC
+LIMIT 1;
+result:
+ [('KARL', 'SEAL', 221.5500000000001)]
+
+
+question='Increase Rental Duration for All Films'
+sql:
+ UPDATE film
+SET rental_duration = rental_duration + 1;
+result:
+ Finished
+
+question='Retrieve the number of rentals for each category, broken down by month'
+sql:
+ SELECT c.name, strftime('%m', r.rental_date) AS month, COUNT(r.rental_id) AS rental_count
+FROM rental r
+JOIN inventory i ON r.inventory_id = i.inventory_id
+JOIN film_category fc ON i.film_id = fc.film_id
+JOIN category c ON fc.category_id = c.category_id
+GROUP BY c.name, month;
+result:
+ [('Action', '02', 17), ('Action', '05', 87), ('Action', '06', 160), ('Action', '07', 464), ('Action', '08', 384), ('Animation', '02', 21), ('Animation', '05', 74), ('Animation', '06', 174), ('Animation', '07', 489), ('Animation', '08', 408), ('Children', '02', 6), ('Children', '05', 71), ('Children', '06', 130), ('Children', '07', 406), ('Children', '08', 332), ('Classics', '02', 9), ('Classics', '05', 62), ('Classics', '06', 136), ('Classics', '07', 384), ('Classics', '08', 348), ('Comedy', '02', 9), ('Comedy', '05', 72), ('Comedy', '06', 135), ('Comedy', '07', 383), ('Comedy', '08', 342), ('Documentary', '02', 6), ('Documentary', '05', 86), ('Documentary', '06', 160), ('Documentary', '07', 429), ('Documentary', '08', 369), ('Drama', '02', 7), ('Drama', '05', 85), ('Drama', '06', 152), ('Drama', '07', 463), ('Drama', '08', 353), ('Family', '02', 13), ('Family', '05', 85), ('Family', '06', 154), ('Family', '07', 460), ('Family', '08', 384), ('Foreign', '02', 11), ('Foreign', '05', 71), ('Foreign', '06', 142), ('Foreign', '07', 432), ('Foreign', '08', 377), ('Games', '02', 14), ('Games', '05', 69), ('Games', '06', 142), ('Games', '07', 392), ('Games', '08', 352), ('Horror', '02', 12), ('Horror', '05', 53), ('Horror', '06', 116), ('Horror', '07', 366), ('Horror', '08', 299), ('Music', '02', 11), ('Music', '05', 61), ('Music', '06', 133), ('Music', '07', 348), ('Music', '08', 277), ('New', '02', 13), ('New', '05', 60), ('New', '06', 132), ('New', '07', 389), ('New', '08', 346), ('Sci-Fi', '02', 8), ('Sci-Fi', '05', 84), ('Sci-Fi', '06', 162), ('Sci-Fi', '07', 462), ('Sci-Fi', '08', 385), ('Sports', '02', 15), ('Sports', '05', 76), ('Sports', '06', 159), ('Sports', '07', 497), ('Sports', '08', 432), ('Travel', '02', 10), ('Travel', '05', 60), ('Travel', '06', 124), ('Travel', '07', 345), ('Travel', '08', 298)]
+
+question='Find Films That Were Rented More Than Once on the Same Day'
+sql:
+ SELECT film.title, rental.rental_date, COUNT(rental.rental_id) AS rental_count
+FROM film
+JOIN inventory ON film.film_id = inventory.film_id
+JOIN rental ON inventory.inventory_id = rental.inventory_id
+GROUP BY film.title, rental.rental_date
+HAVING COUNT(rental.rental_id) > 1;
+result:
+ [('CLUB GRAFFITI', '2006-02-14 15:16:03.000', 2), ('CREATURES SHAKESPEARE', '2006-02-14 15:16:03.000', 2), ('DANCES NONE', '2006-02-14 15:16:03.000', 2), ('DOORS PRESIDENT', '2006-02-14 15:16:03.000', 2), ('FAMILY SWEET', '2006-02-14 15:16:03.000', 2), ('GUNFIGHT MOON', '2006-02-14 15:16:03.000', 2), ('HALF OUTFIELD', '2006-02-14 15:16:03.000', 2), ('INSIDER ARIZONA', '2006-02-14 15:16:03.000', 2), ('INTENTIONS EMPIRE', '2006-02-14 15:16:03.000', 2), ('LUST LOCK', '2006-02-14 15:16:03.000', 2), ('SHOCK CABIN', '2006-02-14 15:16:03.000', 2), ('SONS INTERVIEW', '2006-02-14 15:16:03.000', 2), ('SUIT WALLS', '2006-02-14 15:16:03.000', 2), ('TITANIC BOONDOCK', '2006-02-14 15:16:03.000', 2)]

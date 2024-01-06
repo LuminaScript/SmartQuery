@@ -705,10 +705,18 @@
           .then((response) => response.json())
           .then((data) => {
             // Assuming the response contains a field `response` with the text2sql result
-            const sqlResponse = data.query || "No response from server";
+            const sqlQuery = data.query || "No SQL query generated";
+            const sqlResult = data.sql_result || "No SQL result available";
+            const resultDescription =
+              data.result_description || "No description available";
+
+            // Add each response part to the chat history
+            chatHistory.push({ user: "Query", bot: sqlQuery });
+            chatHistory.push({ user: "Result", bot: sqlResult });
+            chatHistory.push({ user: "Description", bot: resultDescription });
 
             // Add the user message and SQL query response to chat history
-            chatHistory.push({ user: userMessage, bot: sqlResponse });
+            // chatHistory.push({ user: userMessage, bot: sqlResponse });
 
             // Display the entire chat history in the chat box
             displayChatHistory();
